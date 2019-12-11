@@ -3,13 +3,12 @@
 class ModelContact {
 
     public function SelectAll() {
-        $db = new Entity('pt_contact');
+        $db = new Entity('gp_contact');
         try {
             $db->select('*');
             $sth = $db->execute();
 
             $response = $sth->fetchAll(PDO::FETCH_ASSOC);
-
             return $response;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -21,17 +20,18 @@ class ModelContact {
 
         $body = $request->getParsedBody();
 
-        $db = new Entity('pt_contact');
+        $arrayBody = [];
+        $arrayExecute = [];
+
+        $db = new Entity('gp_contact');
          try {
-            $arrayBody = array(
-                'pt_name' => "'{$body['pt_name']}'",
-                'pt_email' => "'{$body['pt_email']}'",
-                'pt_phone' => "'{$body['pt_phone']}'",
-                'pt_message' => "'{$body['pt_message']}'",
-            );
+             foreach ($body as $key => $value) {
+                $arrayBody[$key] = ':' . $key;
+                $arrayExecute[':' . $key] = $value;
+             }
 
             $db->Insert($arrayBody);
-            $id = $db->execute_id();
+            $id = $db->execute_id($arrayExecute);
 
             $asunto = 'Contacto' . $id;
 

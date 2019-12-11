@@ -1,1 +1,20 @@
 [2019-12-11 16:46:52] slim-app.INFO: llego '/prueba' route [] {"uid":"e010d91"}
+[2019-12-11 17:24:35] slim-app.INFO: llego '/prueba' route [] {"uid":"5f53b88"}
+[2019-12-11 17:27:15] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"079b625"}
+[2019-12-11 17:29:52] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"8274878"}
+[2019-12-11 17:30:34] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"f6cce08"}
+[2019-12-11 17:37:37] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"03bc591"}
+[2019-12-11 17:38:12] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"087acbc"}
+[2019-12-11 17:47:38] slim-app.INFO: llego POST '/conexion' route [] {"uid":"5f6036f"}
+[2019-12-11 17:48:34] slim-app.INFO: llego POST '/conexion' route [] {"uid":"6e7a73d"}
+[2019-12-11 17:49:19] slim-app.INFO: llego POST '/conexion' route [] {"uid":"4201169"}
+[2019-12-11 17:49:56] slim-app.INFO: llego POST '/conexion' route [] {"uid":"98669aa"}
+[2019-12-11 17:50:11] slim-app.INFO: llego POST '/conexion' route [] {"uid":"7684979"}
+[2019-12-11 17:51:18] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"0a7c52a"}
+[2019-12-11 17:52:54] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"e49bb60"}
+[2019-12-11 17:53:38] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"df1290e"}
+[2019-12-11 17:53:39] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"907f76f"}
+[2019-12-11 17:53:40] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"faa2b26"}
+[2019-12-11 17:54:14] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"b5f81c7"}
+[2019-12-11 17:54:28] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"c3fc568"}
+[2019-12-11 17:55:26] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"10725f3"}

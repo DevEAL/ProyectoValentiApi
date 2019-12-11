@@ -6,9 +6,9 @@ use PHPMailer\PHPMailer\Exception;
   class SendMail{
     static function EnviarCorreo($asunto, $body){
 
-        $db = new Entity('pt_Parameters');
-        $db->select('value')
-            ->where('name = "Email_contacto" AND status = 1');
+        $db = new Entity('gp_parameters');
+        $db->select('gp_value AS value')
+            ->where('gp_name = "Email_contacto" AND gp_active = 1');
         $sth = $db->execute();
         $email = $sth->fetch(PDO::FETCH_OBJ);
         $mail = new PHPMailer(true);

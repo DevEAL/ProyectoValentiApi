@@ -22,6 +22,8 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../src/utils/printJson.php'; 
 require __DIR__ . '/../src/utils/ClassToken.php';
 require __DIR__ . '/../src/config/db.php';
+require __DIR__ . '/../src/utils/CrearHTML.php';
+require __DIR__ . '/../src/utils/sedMail.php';
 
 
 // Instantiate the app
@@ -49,9 +51,22 @@ require __DIR__ . '/../src/utils/dependencies.php'; // para genera el log
 
 // Archivo de pruebas
 require __DIR__ . '/../src/routes/Test.php';
-require __DIR__ . '/../src/routes/Incription.php';
-// routes
 
+// routes
+require __DIR__ . '/../src/routes/Incription.php';
+require __DIR__ . '/../src/routes/Contact.php';
+require __DIR__ . '/../src/routes/Parameters.php';
+
+
+
+// Controllers 
+require __DIR__. '/../src/controller/Contact.php';
+require __DIR__. '/../src/controller/enlaces.php';
+
+
+// Models
+require __DIR__. '/../src/model/Contact.php';
+require __DIR__. '/../src/model/enlaces.php';
 
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {

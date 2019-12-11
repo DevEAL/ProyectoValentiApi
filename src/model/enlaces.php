@@ -3,10 +3,10 @@
 class ModelEnlaces {
 
     public function SelectAll() {
-        $db = new Entity('pt_Parameters');
+        $db = new Entity('gp_parameters');
         try {
-            $db->select('value')
-            ->where('name = "Email_contacto" AND status = 1');
+            $db->select('gp_value AS value')
+            ->where('gp_name = "Email_contacto" AND gp_active = 1');
             $sth = $db->execute();
 
             $response = $sth->fetch(PDO::FETCH_ASSOC);
