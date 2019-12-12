@@ -18,3 +18,4 @@
 [2019-12-11 17:54:14] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"b5f81c7"}
 [2019-12-11 17:54:28] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"c3fc568"}
 [2019-12-11 17:55:26] slim-app.INFO: llego Get '/Contacts' routes [] {"uid":"10725f3"}
+[2019-12-12 11:20:27] slim-app.INFO: llego POST '/conexion' route [] {"uid":"0c0429f"}
