@@ -2,10 +2,9 @@
 
 require __DIR__. '/../../vendor/autoload.php';
 
-use \Tuupola\Base62;
 use \Firebase\JWT\JWT;
 
-class ealToken {
+class Token {
   public static $secret = "EnAlgunLugarEstudioSecretKey";
   public static $Hash = ["HS256"];
 
@@ -24,7 +23,7 @@ class ealToken {
       "timeExpire"  => $timeExpire->getTimestamp()
     );
 
-    return $encode = JWT::encode($arrayToken, self::$secret, self::$Hash);
+    return $encode = JWT::encode($arrayToken, self::$secret, self::$Hash[0]);
   }
 
   public static function __validar($token){
@@ -34,13 +33,16 @@ class ealToken {
       try {
         $db
           ->select('gp_name','gp_password')
-          ->where("gp_login = {$decode->User} AND gp_token={$token}");
+          ->where("gp_login = '{$decode->User}' AND gp_token = '{$token}'");
         
         $sth = $db->execute();
 
         $response = $sth->fetch(PDO::FETCH_OBJ);
 
-        if (empty($response)) {
+        $time = new DateTime();
+        $timeNow = $time->getTimestamp();
+
+        if (empty($response) && $decode->timeExpire < $timeNow ) {
           return false;
         } else {
           return true;

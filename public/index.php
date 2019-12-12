@@ -24,7 +24,6 @@ require __DIR__ . '/../src/utils/ClassToken.php';
 require __DIR__ . '/../src/config/db.php';
 require __DIR__ . '/../src/utils/CrearHTML.php';
 require __DIR__ . '/../src/utils/sedMail.php';
-require __DIR__ . '/../src/utils/ClassToken.php';
 
 // Instantiate the app
 $settings = require __DIR__ . '/../src/config/settings.php';

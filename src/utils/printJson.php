@@ -5,6 +5,7 @@ class PrintJson {
         200 => 'OK',
         201 => 'Create',
         203 => 'Empty query',
+        210 => 'User login',
         503 => 'Storage error in Data Base',
         404 => 'Url Error'
     );

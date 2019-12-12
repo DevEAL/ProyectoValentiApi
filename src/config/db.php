@@ -52,6 +52,10 @@ class Entity {
         return $this;
     }
 
+    public function update($fields){
+        $this->_sql = "UPDATE {$this->_table} SET {$this->joinFields($fields)}";
+        return $this;
+    }
     public function insert($fields) {
         $key = implode(',', array_keys($fields));
         $values = implode(',', array_values($fields));
