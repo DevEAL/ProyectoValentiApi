@@ -104,3 +104,4 @@
 [2019-12-23 11:41:11] slim-app.INFO: llego POST '/Menus' route [] {"uid":"f818bf6"}
 [2019-12-23 11:41:41] slim-app.INFO: llego POST '/Menus' route [] {"uid":"3050149"}
 [2019-12-23 11:42:05] slim-app.INFO: llego POST '/Menus' route [] {"uid":"5699be5"}
+[2019-12-23 13:35:08] slim-app.INFO: llego POST '/Menus' route [] {"uid":"944afed"}
