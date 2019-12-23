@@ -2,14 +2,14 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-$app->group('/Login', function() use ($app) {
+$app->group('/Logout', function() use ($app) {
 
     $this->map(['POST'], '', function(Request $request, Response $response){
       
-        $this->logger->info("llego POST '/Login' route");
+        $this->logger->info("llego POST '/Logout' route");
         
-        $controller = new ControllerLogin();
-        $controller_rsp = $controller->Login($request);
+        $controller = new ControllerLogout();
+        $controller_rsp = $controller->Logout($request);
   
         if($controller_rsp===false){
             PrintJson::print(403);
@@ -21,4 +21,3 @@ $app->group('/Login', function() use ($app) {
         } 
       });  
 });
-

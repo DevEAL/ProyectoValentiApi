@@ -3,7 +3,7 @@
 class ModelContact {
 
     public function SelectAll() {
-        $db = new Entity('gp_contact');
+        $db = new Entity('eal_contact');
         try {
             $db->select('*');
             $sth = $db->execute();
@@ -23,7 +23,7 @@ class ModelContact {
         $arrayBody = [];
         $arrayExecute = [];
 
-        $db = new Entity('gp_contact');
+        $db = new Entity('eal_contact');
          try {
              foreach ($body as $key => $value) {
                 $arrayBody[$key] = ':' . $key;

@@ -47,12 +47,12 @@ class ModelLogin{
   }
 
   private function validar($user, $password) {
-    $db = new Entity('gp_user');
+    $db = new Entity('eal_user');
 
     try {
       $db
-        ->select('idgp_user as id')
-        ->where("gp_login = '{$user}' AND gp_password = '{$password}' AND gp_active = 1");
+        ->select('ideal_user as id')
+        ->where("eal_login = '{$user}' AND eal_password = '{$password}' AND eal_active = 1");
       $sth = $db->execute();
 
       $id = $sth->fetch(PDO::FETCH_OBJ);
@@ -71,12 +71,12 @@ class ModelLogin{
   private function Insertar($token, $id){
 
     try {
-      $update = array( "gp_token" => "'{$token}'");
-      $db = new Entity('gp_user');
+      $update = array( "eal_token" => "'{$token}'");
+      $db = new Entity('eal_user');
 
       $db
         ->update($update)
-        ->where("idgp_user = {$id}");
+        ->where("ideal_user = {$id}");
       $db->execute();
       
       return true;
@@ -90,12 +90,12 @@ class ModelLogin{
   private function Select($id){
     try {
 
-      $columns = ['gp_name','idgp_perfil','gp_token as token'];
-      $db = new Entity('gp_user');
+      $columns = ['eal_name','ideal_perfil','eal_token as token'];
+      $db = new Entity('eal_user');
 
       $db
         ->select($columns)
-        ->where("idgp_user = {$id}");
+        ->where("ideal_user = {$id}");
       
       $sth = $db->execute();
 

@@ -28,21 +28,22 @@ class Token {
 
   public static function __validar($token){
     try {
-      $decode = JWT::decode($token, self::$secret, self::$Hash);
-      $db = new Entity('gp_user');
+      $decode = JWT::decode($token, self::$secret,["HS256"]);
+      $db = new Entity('eal_user');
       try {
         $db
-          ->select('gp_name','gp_password')
-          ->where("gp_login = '{$decode->User}' AND gp_token = '{$token}'");
+          ->select('eal_name','eal_password')
+          ->where("eal_login = '{$decode->User}' AND eal_token = '{$token}'");
         
         $sth = $db->execute();
-
         $response = $sth->fetch(PDO::FETCH_OBJ);
 
         $time = new DateTime();
         $timeNow = $time->getTimestamp();
 
-        if (empty($response) && $decode->timeExpire < $timeNow ) {
+        $resultTime = $decode->timeExpire - $timeNow;
+
+        if (empty($response) && $resultTime <= 0) {
           return false;
         } else {
           return true;
@@ -62,12 +63,12 @@ class Token {
 
   public static function __lifeToken(){
 
-    $db = new Entity('gp_parameters');
+    $db = new Entity('eal_parameters');
 
     try {
       $db
-        ->select('gp_value AS value')
-        ->where("gp_name = 'Token_life'");
+        ->select('eal_value AS value')
+        ->where("eal_name = 'Token_life'");
 
       $sth = $db->execute();
 
