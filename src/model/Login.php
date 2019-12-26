@@ -5,7 +5,7 @@ class ModelLogin{
       $body = $request->getParsedBody();
 
       $user = $body['user'];
-      $password = $body['password'];
+      $password = md5($body['password']);
 
       $validar = self::validar($user, $password);
 

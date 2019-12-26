@@ -7,7 +7,9 @@ class PrintJson {
         203 => 'Empty query',
         210 => 'User login',
         503 => 'Storage error in Data Base',
-        404 => 'Url Error'
+        404 => 'Url Error',
+        401 => 'Error Autenticación error token',
+        403 => 'Esuario No autorizado'
     );
 
     static function print ($code, $message = '', $path = '', $subResponse = array(), $optional = array()) {
