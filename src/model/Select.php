@@ -1,13 +1,13 @@
 <?php
 
-class ModelMenu{
+class ModelSelect{
 
-  public static function Menu($request){
+  public static function Select($table){
     
-    $db = new Entity('eal_menu');
+    $db = new Entity($table);
     try {
       
-      $db->select("eal_name, eal_icon, eal_url")
+      $db->select("eal_name as name")
          ->where("eal_active = 1");
       $sth = $db->execute();
 

@@ -10,7 +10,7 @@ class ControllerLogout{
 
     $body=$request->getHeaders();
 
-    $token = $body['HTTP_TOKEN'][0];
+    $token = $body['HTTP_AUTHORIZATION'][0];
 
     if (Token::__validar($token)) {
 

@@ -24,6 +24,7 @@ require __DIR__ . '/../src/utils/ClassToken.php';
 require __DIR__ . '/../src/config/db.php';
 require __DIR__ . '/../src/utils/CrearHTML.php';
 require __DIR__ . '/../src/utils/sedMail.php';
+require __DIR__ . '/../src/utils/Subir.php';
 
 // Instantiate the app
 $settings = require __DIR__ . '/../src/config/settings.php';
@@ -58,6 +59,7 @@ require __DIR__ . '/../src/routes/Parameters.php';
 require __DIR__ . '/../src/routes/Login.php';
 require __DIR__ . '/../src/routes/Logout.php';
 require __DIR__ . '/../src/routes/SelectMenu.php';
+require __DIR__ . '/../src/routes/Select.php';
 
 // Controllers 
 require __DIR__ . '/../src/controller/Contact.php';
@@ -65,6 +67,7 @@ require __DIR__ . '/../src/controller/enlaces.php';
 require __DIR__ . '/../src/controller/Login.php';
 require __DIR__ . '/../src/controller/Logout.php';
 require __DIR__ . '/../src/controller/SelectMenu.php';
+require __DIR__ . '/../src/controller/Select.php';
 
 // Models
 require __DIR__ . '/../src/model/Contact.php';
@@ -72,6 +75,7 @@ require __DIR__ . '/../src/model/enlaces.php';
 require __DIR__ . '/../src/model/Login.php';
 require __DIR__ . '/../src/model/Logout.php';
 require __DIR__ . '/../src/model/SelectMenu.php';
+require __DIR__ . '/../src/model/Select.php';
 
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {

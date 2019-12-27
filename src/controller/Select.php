@@ -1,12 +1,12 @@
 <?php
 
-class ControllerMenu{
+class ControllerSelect{
   public $model;
   public function __construct()
   {
-    $this->model = new ModelMenu();
+    $this->model = new ModelSelect();
   }
-  public function Menu($request) {
+  public function Select($request, $table) {
 
     $body=$request->getHeaders();
 
@@ -14,7 +14,7 @@ class ControllerMenu{
 
     if (Token::__validar($token)) {
 
-      $response = $this->model->Menu($request);
+      $response = $this->model->Select($table);
 
       if (empty($response)) {
         return 203;
