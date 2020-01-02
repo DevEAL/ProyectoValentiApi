@@ -1,4 +1,8 @@
 <?php
+/**
+ * clase SendMail para envio de correos con PHPMeiler.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
 use PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\SMTP ;
 use PHPMailer\PHPMailer\Exception;

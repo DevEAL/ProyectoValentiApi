@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * clase CrearHTML del los correos que se deben enviar.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
 class CrearHTML {
     public static function Html($body, $titulo) {
         $HTMLStart =

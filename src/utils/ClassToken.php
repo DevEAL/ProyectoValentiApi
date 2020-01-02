@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * clase Token para el manejo de autentificación por JWT.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
+
 require __DIR__. '/../../vendor/autoload.php';
 
 use \Firebase\JWT\JWT;

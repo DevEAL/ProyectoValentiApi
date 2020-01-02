@@ -7,12 +7,7 @@ $app->group('/Enlace', function() use ($app) {
         $Controller = new ControllerEnlaces();
         $response = $Controller->SelectAll();
 
-        if ($response === false) {
-            PrintJson::print(404);
-        } else if (is_array($response)) {
-            PrintJson::print($response[0], 'Inscription', 'data', $response[1]);
-        } else {
-            PrintJson::print($response);
-        }
+        GetResponse::Response($response, 'Parameters');
+
     });
 });

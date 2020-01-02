@@ -16,18 +16,13 @@ class ControllerSelect{
 
       $response = $this->model->Select($table);
 
-      if (empty($response)) {
-        return 203;
-      } elseif (is_array($response)) {
-        return array(200, $response);
-      } elseif ($response === false) {
-        return 503;
-      } else {
-        return 201;
-      }
+      return GetResponse::CrontrollerResponse($response);
+
     } else {
+
       $response = array("error" => "Session caducada");
       return array(210, $response);
+      
     }
   }
 }

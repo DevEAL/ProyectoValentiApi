@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * clase Subir los archivos multimedia de la pagina Web.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
   class Subir {
     public  static function Documento($name, $archivo){
       if(!file_exists('Doc')){

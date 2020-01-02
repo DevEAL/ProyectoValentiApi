@@ -1,23 +1,16 @@
 <?php
 
 class ControllerEnlaces {
-    public $model;
+  public $model;
 
-    public function __construct()
-    {
-        $this->model = new ModelEnlaces();
-    }
-    public function SelectAll () {
-        $response = $this->model->SelectAll();
+  public function __construct()
+  {
+    $this->model = new ModelEnlaces();
+  }
+  public function SelectAll () {
 
-        if (empty($response)) {
-            return 203;
-        } elseif (is_array($response)) {
-            return array(200, $response);
-        } elseif ($response === false) {
-            return 503;
-        } else {
-            return 201;
-        }
-    }
+    $response = $this->model->SelectAll();
+    return GetResponse::CrontrollerResponse($response);
+    
+  }
 }

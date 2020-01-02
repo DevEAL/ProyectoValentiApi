@@ -10,15 +10,9 @@ $app->group('/Select', function() use ($app) {
         $this->logger->info("llego POST '/Select/{table}' route");
         
         $controller = new ControllerSelect();
-        $controller_rsp = $controller->Select($request, $table);
+        $response = $controller->Select($request, $table);
   
-        if($controller_rsp===false){
-            PrintJson::print(403);
-        }
-        if(is_array($controller_rsp)){
-            PrintJson::print($controller_rsp[0],'Create','data',$controller_rsp[1]);  
-        }else{
-            PrintJson::print($controller_rsp);  
-        } 
+        GetResponse::Response($response, "Select {$table}");
+
       });  
 });
