@@ -7,7 +7,7 @@ class ModelSelect{
     $db = new Entity($table);
     try {
       
-      $db->select("eal_name as name")
+      $db->select("eal_name as name, ideal_categoria as eal_idcategoria")
          ->where("eal_active = 1");
       $sth = $db->execute();
 

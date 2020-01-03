@@ -19,8 +19,15 @@ class ModelAdvance {
     
     $body = $request->getParsedBody();
 
+    $img = $body['url'];
 
-    return CRUD::Insert($this->table, $body);
+    unset($body['url']);
+
+    if (CRUD::Insert($this->table, $body)) {
+      return Subir::SubirImg($img,$body['img']);
+    } else {
+      return false;
+    }
   }
 
   public function Update($request, $id){

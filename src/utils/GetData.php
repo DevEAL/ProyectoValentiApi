@@ -4,8 +4,10 @@
  * @author Yesid Parada <yesid.parada.granados@gmail.com>
  */
 class CRUD{
-
-  public static function Select($table, $columns, $condition) {
+  /**
+   *la propiedad fetch funciona para elegir el método de codificación de la petición
+  */
+  public static function Select($table, $columns, $condition, $fetch = "all") {
     
     $db = new Entity($table);
     
@@ -14,7 +16,11 @@ class CRUD{
          ->where($condition);
       $sth = $db->execute();
 
-      $response = $sth->fetchAll(PDO::FETCH_ASSOC);
+      if ($fetch == "all" ){
+        $response = $sth->fetchAll(PDO::FETCH_ASSOC);
+      } else {
+        $response = $sth->fetch(PDO::FETCH_OBJ);
+      }
 
       return $response;
     } catch (PDOException $e) {
