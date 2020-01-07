@@ -62,6 +62,8 @@ require __DIR__ . '/../src/routes/Logout.php';
 require __DIR__ . '/../src/routes/SelectMenu.php';
 require __DIR__ . '/../src/routes/Select.php';
 require __DIR__ . '/../src/routes/advance.php';
+require __DIR__ . '/../src/routes/new.php';
+require __DIR__ . '/../src/routes/User.php';
 
 // Controllers 
 require __DIR__ . '/../src/controller/Contact.php';
@@ -71,6 +73,8 @@ require __DIR__ . '/../src/controller/Logout.php';
 require __DIR__ . '/../src/controller/SelectMenu.php';
 require __DIR__ . '/../src/controller/Select.php';
 require __DIR__ . '/../src/controller/advance.php';
+require __DIR__ . '/../src/controller/new.php';
+require __DIR__ . '/../src/controller/User.php';
 
 // Models
 require __DIR__ . '/../src/model/Contact.php';
@@ -80,6 +84,8 @@ require __DIR__ . '/../src/model/Logout.php';
 require __DIR__ . '/../src/model/SelectMenu.php';
 require __DIR__ . '/../src/model/Select.php';
 require __DIR__ . '/../src/model/advance.php';
+require __DIR__ . '/../src/model/new.php';
+require __DIR__ . '/../src/model/User.php';
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
     $handler = $this->notFoundHandler; // handle using the default Slim page not found handler

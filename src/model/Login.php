@@ -90,7 +90,7 @@ class ModelLogin{
   private function Select($id){
     try {
 
-      $columns = ['eal_name','ideal_perfil','eal_token as token'];
+      $columns = ['eal_name','eal_idperfil','eal_token as token'];
       $db = new Entity('eal_user');
 
       $db
