@@ -19,10 +19,9 @@ class CrearHTML {
               <h2>'.$titulo.'</h2>
             </div>
             <div>
-              <p>Nombre: <span>'.$body['gp_name'].'</span></p>
-              <p>Correo: <span>'.$body['gp_email'].'</span></p>
-              <p>Celular: <span>'.$body['gp_subject'].'</span></p>
-              <p>Mensaje: <span>'.$body['gp_message'].'</span></p>
+              <p>Nombre: <span>'.$body['name'].'</span></p>
+              <p>Correo: <span>'.$body['email'].'</span></p>
+              <p>Mensaje: <span>'.$body['message'].'</span></p>
             </div>
             ';
         $HTMLFinish =

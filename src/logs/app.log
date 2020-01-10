@@ -1030,3 +1030,27 @@
 [2020-01-07 14:14:05] slim-app.INFO: llego POST '/Menus' route [] {"uid":"5363290"}
 [2020-01-07 14:14:05] slim-app.INFO: llego Get '/Advance' routes [] {"uid":"bba36e8"}
 [2020-01-07 14:14:05] slim-app.INFO: llego POST '/Select/{table}' route [] {"uid":"2e27c08"}
+[2020-01-08 11:59:31] slim-app.INFO: llego POST '/Login' route [] {"uid":"31c8f0b"}
+[2020-01-08 11:59:31] slim-app.INFO: llego POST '/Menus' route [] {"uid":"56a5bb7"}
+[2020-01-08 11:59:34] slim-app.INFO: llego POST '/Menus' route [] {"uid":"13b52db"}
+[2020-01-08 11:59:34] slim-app.INFO: llego Get '/New' routes [] {"uid":"81b5f3c"}
+[2020-01-08 12:00:31] slim-app.INFO: llego POST '/Logout' route [] {"uid":"0e248f6"}
+[2020-01-10 09:23:01] slim-app.INFO: llego POST '/conexion' route [] {"uid":"1722dd2"}
+[2020-01-10 09:25:16] slim-app.INFO: llego POST '/conexion' route [] {"uid":"6ea7417"}
+[2020-01-10 09:25:51] slim-app.INFO: llego POST '/conexion' route [] {"uid":"0e401c2"}
+[2020-01-10 09:27:23] slim-app.INFO: llego POST '/conexion' route [] {"uid":"84c7098"}
+[2020-01-10 10:22:59] slim-app.INFO: llego POST '/conexion' route [] {"uid":"aac7a85"}
+[2020-01-10 10:23:53] slim-app.INFO: llego POST '/conexion' route [] {"uid":"7f6e643"}
+[2020-01-10 10:26:36] slim-app.INFO: llego POST '/conexion' route [] {"uid":"4e64583"}
+[2020-01-10 10:27:54] slim-app.INFO: llego POST '/conexion' route [] {"uid":"85532bd"}
+[2020-01-10 10:38:42] slim-app.INFO: llego POST '/conexion' route [] {"uid":"6d6d597"}
+[2020-01-10 10:42:38] slim-app.INFO: llego POST '/conexion' route [] {"uid":"ce03a8a"}
+[2020-01-10 10:44:57] slim-app.INFO: llego POST '/conexion' route [] {"uid":"117b293"}
+[2020-01-10 10:46:08] slim-app.INFO: llego POST '/conexion' route [] {"uid":"6bb9bca"}
+[2020-01-10 10:46:09] slim-app.INFO: llego POST '/conexion' route [] {"uid":"08f3767"}
+[2020-01-10 10:46:09] slim-app.INFO: llego POST '/conexion' route [] {"uid":"7697305"}
+[2020-01-10 10:46:10] slim-app.INFO: llego POST '/conexion' route [] {"uid":"8747679"}
+[2020-01-10 10:46:23] slim-app.INFO: llego POST '/conexion' route [] {"uid":"2f442f5"}
+[2020-01-10 10:46:33] slim-app.INFO: llego POST '/conexion' route [] {"uid":"f3bcf88"}
+[2020-01-10 13:46:07] slim-app.INFO: llego POST '/conexion' route [] {"uid":"7ac5581"}
+[2020-01-10 17:36:18] slim-app.INFO: llego '/Test' route [] {"uid":"8c70506"}

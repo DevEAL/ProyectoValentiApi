@@ -20,35 +20,20 @@ class ModelContact {
 
         $body = $request->getParsedBody();
 
-        $arrayBody = [];
-        $arrayExecute = [];
+        $id = CRUD::InsertId('eal_contact', $body);
+        
+        $asunto = 'Contacto '. $body['subject'] . " ". $id;
 
-        $db = new Entity('eal_contact');
-         try {
-             foreach ($body as $key => $value) {
-                $arrayBody[$key] = ':' . $key;
-                $arrayExecute[':' . $key] = $value;
-             }
+        $template = CrearHTML::Html($body, $asunto);
 
-            $db->Insert($arrayBody);
-            $id = $db->execute_id($arrayExecute);
-
-            $asunto = 'Contacto' . $id;
-
-            $template = CrearHTML::Html($body, $asunto);
-
-            if (empty($template)) {
-                return array( 'template' => 'Template error' );
+        if (empty($template)) {
+            return array( 'template' => 'Template error' );
+        } else {
+            if (SendMail::EnviarCorreo($asunto, $template)) {
+                return true;
             } else {
-                if (SendMail::EnviarCorreo($asunto, $template)) {
-                    return true;
-                } else {
-                    return array( 'email' => 'Template de envio de correo' );
-                }
+                return array( 'email' => 'Error de envio de correo' );
             }
-         } catch (PDOException $e){
-            echo $e->getMessage();
-            return false;
-         }
+        }
     }
 }
