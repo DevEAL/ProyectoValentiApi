@@ -8,7 +8,9 @@ class ModelAdvance {
   }
 
   public function SelectAll(){
-    return CRUD::Select($this->table, '*', "eal_active= 1");
+    $columns = ["EC.ideal_contenido", "EC.eal_img", "EC.eal_dataInicio", "EC.eal_message", "EC.eal_idcategoria", "EC.eal_active", "ECA.eal_name"];
+    $inner = "EC.eal_idcategoria = ECA.ideal_categoria";
+    return CRUD::SelectInner("{$this->table} As EC", $columns, "EC.eal_active= 1", "eal_categoria As ECA", $inner);
   }
 
   public function Select($id){

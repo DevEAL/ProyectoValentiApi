@@ -29,6 +29,28 @@ class CRUD{
     }
   }
 
+  public static function SelectInner($table, $columns, $condition, $table2, $conditionInner, $fetch = "all") {
+    $db = new Entity($table);
+    
+    try {
+      $db->select($columns)
+         ->inner_join($table2, $conditionInner)
+         ->where($condition);
+      $sth = $db->execute();
+
+      if ($fetch == "all" ){
+        $response = $sth->fetchAll(PDO::FETCH_ASSOC);
+      } else {
+        $response = $sth->fetch(PDO::FETCH_OBJ);
+      }
+
+      return $response;
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+      return false;
+    }
+  }
+
   public static function Insert($table, $body){
     
     $arrayBody = [];
