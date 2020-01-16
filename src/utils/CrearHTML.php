@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * clase CrearHTML del los correos que se deben enviar.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
 class CrearHTML {
     public static function Html($body, $titulo) {
         $HTMLStart =
@@ -16,10 +19,9 @@ class CrearHTML {
               <h2>'.$titulo.'</h2>
             </div>
             <div>
-              <p>Nombre: <span>'.$body['pt_name'].'</span></p>
-              <p>Correo: <span>'.$body['pt_email'].'</span></p>
-              <p>Celular: <span>'.$body['pt_phone'].'</span></p>
-              <p>Mensaje: <span>'.$body['pt_message'].'</span></p>
+              <p>Nombre: <span>'.$body['name'].'</span></p>
+              <p>Correo: <span>'.$body['email'].'</span></p>
+              <p>Mensaje: <span>'.$body['message'].'</span></p>
             </div>
             ';
         $HTMLFinish =

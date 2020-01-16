@@ -22,7 +22,11 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../src/utils/printJson.php'; 
 require __DIR__ . '/../src/utils/ClassToken.php';
 require __DIR__ . '/../src/config/db.php';
-
+require __DIR__ . '/../src/utils/CrearHTML.php';
+require __DIR__ . '/../src/utils/sedMail.php';
+require __DIR__ . '/../src/utils/Subir.php';
+require __DIR__ . '/../src/utils/GetResponse.php';
+require __DIR__ . '/../src/utils/GetData.php';
 
 // Instantiate the app
 $settings = require __DIR__ . '/../src/config/settings.php';
@@ -49,10 +53,42 @@ require __DIR__ . '/../src/utils/dependencies.php'; // para genera el log
 
 // Archivo de pruebas
 require __DIR__ . '/../src/routes/Test.php';
-require __DIR__ . '/../src/routes/Incription.php';
+
 // routes
+require __DIR__ . '/../src/routes/Contact.php';
+require __DIR__ . '/../src/routes/Parameters.php';
+require __DIR__ . '/../src/routes/Login.php';
+require __DIR__ . '/../src/routes/Logout.php';
+require __DIR__ . '/../src/routes/SelectMenu.php';
+require __DIR__ . '/../src/routes/Select.php';
+require __DIR__ . '/../src/routes/advance.php';
+require __DIR__ . '/../src/routes/new.php';
+require __DIR__ . '/../src/routes/User.php';
+require __DIR__ . '/../src/routes/Web.php';
 
+// Controllers 
+require __DIR__ . '/../src/controller/Contact.php';
+require __DIR__ . '/../src/controller/enlaces.php';
+require __DIR__ . '/../src/controller/Login.php';
+require __DIR__ . '/../src/controller/Logout.php';
+require __DIR__ . '/../src/controller/SelectMenu.php';
+require __DIR__ . '/../src/controller/Select.php';
+require __DIR__ . '/../src/controller/advance.php';
+require __DIR__ . '/../src/controller/new.php';
+require __DIR__ . '/../src/controller/User.php';
+require __DIR__ . '/../src/controller/Web.php';
 
+// Models
+require __DIR__ . '/../src/model/Contact.php';
+require __DIR__ . '/../src/model/enlaces.php';
+require __DIR__ . '/../src/model/Login.php';
+require __DIR__ . '/../src/model/Logout.php';
+require __DIR__ . '/../src/model/SelectMenu.php';
+require __DIR__ . '/../src/model/Select.php';
+require __DIR__ . '/../src/model/advance.php';
+require __DIR__ . '/../src/model/new.php';
+require __DIR__ . '/../src/model/User.php';
+require __DIR__ . '/../src/model/Web.php';
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
     $handler = $this->notFoundHandler; // handle using the default Slim page not found handler

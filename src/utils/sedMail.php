@@ -1,4 +1,8 @@
 <?php
+/**
+ * clase SendMail para envio de correos con PHPMeiler.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
 use PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\SMTP ;
 use PHPMailer\PHPMailer\Exception;
@@ -6,9 +10,9 @@ use PHPMailer\PHPMailer\Exception;
   class SendMail{
     static function EnviarCorreo($asunto, $body){
 
-        $db = new Entity('pt_Parameters');
-        $db->select('value')
-            ->where('name = "Email_contacto" AND status = 1');
+        $db = new Entity('eal_parameters');
+        $db->select('eal_value AS value')
+            ->where('eal_name = "Email_contacto" AND eal_active = 1');
         $sth = $db->execute();
         $email = $sth->fetch(PDO::FETCH_OBJ);
         $mail = new PHPMailer(true);
@@ -23,7 +27,7 @@ use PHPMailer\PHPMailer\Exception;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
             //Recipients
-            $mail->setFrom('sendohlala@gmail.com', 'Admin Portal');
+            $mail->setFrom('sendohlala@gmail.com', 'Admin Web');
             // $mail->addAddress('ohlalaemprende@gmail.com');     // Add a recipient
             $mail->addAddress($email->value);             // Name is optional
             // $mail->addAddress('desarrollo@enalgunlugarestudio.com');

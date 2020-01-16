@@ -1,5 +1,11 @@
 <?php
 
+use phpDocumentor\Reflection\Types\Array_;
+
+/**
+ * clase Entity de la conexion a la Base de datos y la crud.
+ * @author Yesid Parada <yesid.parada.granados@gmail.com>
+ */
 class Entity {
     private $_db;
     private $_table;
@@ -46,9 +52,8 @@ class Entity {
         return $this;
     }
 
-    public function where ($conditions){
-        $str_conditions = is_string($conditions) ? $conditions : $this->joinFields($conditions, ' AND ');
-        $this->_sql .= " WHERE {$str_conditions}";
+    public function update($fields){
+        $this->_sql = "UPDATE {$this->_table} SET {$this->joinFields($fields)}";
         return $this;
     }
 
@@ -56,6 +61,56 @@ class Entity {
         $key = implode(',', array_keys($fields));
         $values = implode(',', array_values($fields));
         $this->_sql = "INSERT INTO {$this->_table} ({$key}) VALUES ({$values})";
+        return $this;
+    }
+
+    public function delete(Array $conditions){
+        $this->_sql = "DELETE FROM {$this->_table}";
+        $this->where($conditions)->execute();
+
+        return $this;
+    }
+
+    public function inner_join ($table, $conditions) {
+        $str_conditions = is_string($conditions) ? $conditions : $this->joinFields($conditions, '');
+        $this->_sql .= " INNER JOIN $table ON {$str_conditions}";
+        return $this;
+    }
+
+    public function left_join ($table, $conditions) {
+        $str_conditions = is_string($conditions) ? $conditions : $this->joinFields($conditions, '');
+        $this->_sql .= " LEFT JOIN $table ON {$str_conditions}";
+        return $this;
+    }
+    public function right_join ($table, $conditions) {
+        $this->_sql .= " RIGHT JOIN $table ON {$conditions}";
+        return $this;
+    }
+    public function group_by(Array $columns){
+        $str_columns = implode(',', $columns);
+        $this->_sql .= " GROUP BY $str_columns";
+        return $this;
+    }
+    public function order_by(Array $columns, String $type = 'ASC'){
+        $str_columns = implode(',', $columns);
+        $this->_sql .= " ORDER BY $str_columns $type";
+        return $this;
+    }
+
+    public function limit($value){
+        $this->_sql .= " LIMIT $value";
+        return $this;
+    }
+
+    public function where ($conditions){
+        $str_conditions = is_string($conditions) ? $conditions : $this->joinFields($conditions, ' AND ');
+        $this->_sql .= " WHERE {$str_conditions}";
+        return $this;
+    }
+    
+    public function count ($fields) {
+        $str_fields = is_string($fields) ? $fields : implode(',', $fields);
+        $this->_sql = "SELECT COUNT({$str_fields}) AS Cantidad FROM {$this->_table}";
         return $this;
     }
 
