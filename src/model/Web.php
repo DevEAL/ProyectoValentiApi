@@ -8,26 +8,35 @@ class ModelWeb {
   }
 
   public function SelectAvance(){
+
+    // url de localización 
+    $path = CRUD::Select("eal_parameters", "eal_value as value", "eal_active= 1 AND eal_name='PathWeb'", "Obj");
+
     // Declaro los campos a extraer
-    $columns = ["EC.ideal_contenido", "EC.eal_img", "EC.eal_dataInicio", "EC.eal_message", "EC.eal_idcategoria", "EC.eal_active", "ECA.eal_name"];
+    $columns = ["EC.ideal_contenido as id", "CONCAT('{$path->value}','',EC.eal_img) As img", "CONCAT(DATE_FORMAT(EC.eal_dataInicio, '%d/%m/%Y'),' - ', EC.eal_message) As mensaje ", "ECA.eal_name as title"];
     
     // columnas a comparar
     $inner = "EC.eal_idcategoria = ECA.ideal_categoria";
-    // return CRUD::SelectInner("{$this->table} As EC", $columns, "EC.eal_active= 1", "eal_categoria As ECA", $inner);
     $data = [];
-    for ($i=1; $i <= 4 ; $i++) {
+
+    for ($i=1; $i <= 5 ; $i++) {
       
       $rep = CRUD::SelectInner("{$this->table} As EC", $columns, "EC.eal_active= 1  AND EC.eal_idcategoria={$i}", "eal_categoria As ECA", $inner);
 
-      $data += [ "Elemento {$i}" => $rep];
-      print_r($data);
+      $data += [ "Elemento{$i}" => $rep];
       
     }
     return $data;
-    // return CRUD::SelectInner("{$this->table} As EC", $columns, "EC.eal_active= 1", "eal_categoria As ECA", $inner);
   }
 
   public function SelectBoletin(){
-    return CRUD::Select("eal_boletin", '*', "eal_active= 1");
+
+    // url de localización 
+    $path = CRUD::Select("eal_parameters", "eal_value as value", "eal_active= 1 AND eal_name='PathWeb'", "Obj");
+    
+    // Declaro los campos a extraer
+    $columns = ["eal_titulo As titulo", "eal_texto As texto", "CONCAT('{$path->value}','',eal_articulo) As Articulo", "CONCAT('{$path->value}','',eal_poster) As Poster"];
+    
+    return CRUD::Select("eal_boletin", $columns, "eal_active= 1");
   }
 }
